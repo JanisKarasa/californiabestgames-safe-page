@@ -39,60 +39,72 @@
     />
   </head>
   <body>
-    <header class="header">
+    <header class="page-header">
       <div class="main-ol"></div>
       <div class="container">
-        <div class="col-md-8 offset-md-2 text-center">
-          <img src="./assets/img/logo/logo2.png" class="logo img-fluid" />
-          <p>
-            Embark on a virtual journey through the iconic landscapes of
-            California with this free-to-play slot game, where players can
-            experience the glitz of Hollywood and the allure of the Golden
-            State's beaches in every spin.
-          </p>
-
-          <a href="play.html" class="button-82-pushable" role="button">
-            <span class="button-82-shadow"></span>
-            <span class="button-82-edge"></span>
-            <span class="button-82-front text"> Play Now </span>
-          </a>
+        <div class="col-md-10 offset-md-1 text-center">
+          <a href="index.html"><h1>❮ Go back</h1></a>
         </div>
-        <div class="col-md-6"></div>
       </div>
     </header>
     <main>
-      <section class="main-wrapper">
-        <div class="container">
-          <div class="col-md-10 offset-md-1">
-            <div class="main-content">
-              <h1 class="text-center mt-50">About Best California Games</h1>
+      <section class="page-wrap">
+        <div class="container text-center">
+          <!-- Game Page -->
+          <p style="margin-top: 30px">*Please wait while the game loads.</p>
+          <h4>Coming Soon to Android &amp; iOS app stores.</h4>
+          <canvas
+            id="unity-canvas"
+            width="1920"
+            height="1080"
+            tabindex="-1"
+            style="
+              width: 960px;
+              height: 540px;
+              background: rgb(35, 31, 32);
+              cursor: default;
+            "
+          ></canvas>
+          <script src="Build/bestcaliforniagames.loader.js"></script>
+          <script>
+            if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+              // Mobile device style: fill the whole browser client area with the game canvas:
+              var meta = document.createElement("meta");
+              meta.name = "viewport";
+              meta.content =
+                "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes";
+              document.getElementsByTagName("head")[0].appendChild(meta);
 
-              <div class="text-center cs">
-                <p>
-                  Best California Games invites players to a captivating virtual
-                  adventure through the enchanting landscapes and vibrant
-                  culture of California. This free-to-play slot game seamlessly
-                  combines classic charm and futuristic flair, immersing users
-                  in a neon-lit outer space filled with iconic California
-                  elements. From the glitz of Hollywood to the sun-soaked
-                  beaches, each spin unveils a nostalgic journey that captures
-                  the essence of the Golden State. With a perfect blend of
-                  captivating visuals and engaging gameplay, Best California
-                  Games offers players a unique and exciting experience,
-                  bringing the spirit of California to the world of online
-                  slots.
-                </p>
-                <p>
-                  <strong
-                    >*Currently only available on Web Browsers. iOS and Android
-                    native apps will be released soon!*</strong
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
+              var canvas = document.querySelector("#unity-canvas");
+              canvas.style.width = "100%";
+              canvas.style.height = "100%";
+              canvas.style.position = "fixed";
+
+              document.body.style.textAlign = "left";
+            }
+
+            createUnityInstance(document.querySelector("#unity-canvas"), {
+              dataUrl: "Build/bestcaliforniagames.data",
+              frameworkUrl: "Build/bestcaliforniagames.framework.js",
+              codeUrl: "Build/bestcaliforniagames.wasm",
+              streamingAssetsUrl: "StreamingAssets",
+              companyName: "mOKOKO",
+              productName: "Slotos",
+              productVersion: "1.1"
+              // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+              // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+            });
+          </script>
+
+          <p style="margin-top: 30px">
+            *Best played on Google Chrome Web browser
+          </p>
+          <h4>Coming Soon to Android &amp; iOS app stores.</h4>
+
+          <!-- Game Page -->
         </div>
       </section>
+      <script src="Build/bestcaliforniagames.framework.js"></script>
     </main>
     <footer>
       <footer class="footer text-center">
